@@ -1,0 +1,26 @@
+{
+    "gitlens.gitExplorer.files.layout": "auto",
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true
+    },
+    "git.autofetch": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "client/.tmp": true,
+        "client/dist": true,
+        "client/coverage": true
+    },
+    "editor.tabSize": 2,
+    "files.trimTrailingWhitespace": true
+}
