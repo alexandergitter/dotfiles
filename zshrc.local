@@ -1,0 +1,31 @@
+zstyle ':completion:*' menu select
+
+[[ -f /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found
+
+alias rrspec='bundle exec rake spec'
+alias be='bundle exec'
+alias s='ssh'
+alias sl='ls'
+alias gits='git status'
+
+[[ -f /usr/share/chruby/chruby.sh ]] && source /usr/share/chruby/chruby.sh && chruby "ruby-2.1.9"
+
+[[ -f ~/.nvm/nvm.sh ]] && source ~/.nvm/nvm.sh
+
+if [ -d ~/.rbenv ]
+then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
+
+ssh-add -l &>/dev/null
+if [ "$?" == 2 ]; then
+  test -r ~/.ssh-agent && \
+    eval "$(<~/.ssh-agent)" >/dev/null
+
+  ssh-add -l &>/dev/null
+  if [ "$?" == 2 ]; then
+    (umask 066; ssh-agent > ~/.ssh-agent)
+    eval "$(<~/.ssh-agent)" >/dev/null
+  fi
+fi

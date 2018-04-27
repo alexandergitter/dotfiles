@@ -1,0 +1,7 @@
+[user]
+	name = Alexander Gitter
+	email = contact@agitter.net
+[color]
+	ui = true
+[push]
+	default = simple
