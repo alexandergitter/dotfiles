@@ -5,3 +5,6 @@
 	ui = true
 [push]
 	default = simple
+[alias]
+	lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
+	pullff = pull --ff-only
