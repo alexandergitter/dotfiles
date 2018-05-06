@@ -1,10 +1,14 @@
 [user]
-	name = Alexander Gitter
-	email = contact@agitter.net
+  name = Alexander Gitter
+  email = contact@agitter.net
 [color]
-	ui = true
+  ui = true
 [push]
-	default = simple
+  default = simple
 [alias]
-	lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
-	pullff = pull --ff-only
+  s = status
+  pullff = pull --ff-only
+  r = !GIT_NO_PAGER=1 git l -20
+  ra = !git r --all
+  l = "!. ~/.githelpers && pretty_git_log"
+  la = !git l --all
