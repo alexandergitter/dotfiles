@@ -22,6 +22,20 @@
   :ensure spacemacs-theme
   :config (load-theme 'spacemacs-dark t))
 
+(use-package evil
+  :init
+  (evil-mode 1))
+
+(use-package evil-magit)
+
+(use-package counsel
+  :init
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
+  (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-next-line)
+  (define-key ivy-minibuffer-map (kbd "C-k") 'ivy-previous-line))
+
 ;; Use separate custom-file, so emacs doesn't touch this one
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file :noerror)
@@ -37,4 +51,5 @@
       kept-new-versions 5
       kept-old-versions 2
       version-control t)
- 
+
+(defalias 'yes-or-no-p 'y-or-n-p)

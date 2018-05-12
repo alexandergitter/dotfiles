@@ -77,6 +77,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# programs
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 # tab completion settings
 bind 'TAB:menu-complete'
 bind 'set completion-ignore-case on'

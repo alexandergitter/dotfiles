@@ -22,5 +22,6 @@
         "client/coverage": true
     },
     "editor.tabSize": 2,
-    "files.trimTrailingWhitespace": true
+    "files.trimTrailingWhitespace": true,
+    "explorer.confirmDelete": false
 }
