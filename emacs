@@ -18,9 +18,9 @@
   (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
   (global-set-key (kbd "C-x g") 'magit-status))
 
-(use-package spacemacs-dark-theme
-  :ensure spacemacs-theme
-  :config (load-theme 'spacemacs-dark t))
+(use-package monokai-theme
+  :ensure monokai-theme
+  :config (load-theme 'monokai t))
 
 (use-package evil
   :init

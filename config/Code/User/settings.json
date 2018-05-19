@@ -23,5 +23,7 @@
     },
     "editor.tabSize": 2,
     "files.trimTrailingWhitespace": true,
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "workbench.colorTheme": "Monokai",
+    "editor.autoIndent": true
 }
