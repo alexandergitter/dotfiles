@@ -22,18 +22,19 @@ function link_file {
     echo "$target exists, skipping"
   else
     echo "linking $target -> $source"
-    ln -sT "$source" "$target"
+    ln -s "$source" "$target"
   fi
 }
 
-for file in $(find $dotfile_repo -type f ! -path '*/.git/*' ! -name 'link-dotfiles.sh' ! -name '.*' -printf '%P\n')
+for file in $(find $dotfile_repo -type f ! -path '*/.git/*' ! -name 'link-dotfiles.sh' ! -name '.*' -print)
 do
-  dirname="$(dirname $file)"
-  filename="$(basename $file)"
+  relative_file=${file#"$dotfile_repo/"}
+  dirname="$(dirname $relative_file)"
+  filename="$(basename $relative_file)"
 
   if [ $dirname == "." ]; then
-    link_file "$dotfile_repo/$file" "$HOME/.$filename"
+    link_file "$dotfile_repo/$relative_file" "$HOME/.$filename"
   else
-    link_file "$dotfile_repo/$file" "$HOME/.$dirname/$filename"
+    link_file "$dotfile_repo/$relative_file" "$HOME/.$dirname/$filename"
   fi
 done
