@@ -8,7 +8,3 @@
 [alias]
   s = status
   pullff = pull --ff-only
-  r = !GIT_NO_PAGER=1 git l -20
-  ra = !git r --all
-  l = "!. ~/.githelpers && pretty_git_log"
-  la = !git l --all
