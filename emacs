@@ -22,12 +22,6 @@
   :ensure monokai-theme
   :config (load-theme 'monokai t))
 
-(use-package evil
-  :init
-  (evil-mode 1))
-
-(use-package evil-magit)
-
 (use-package counsel
   :init
   (ivy-mode 1)
