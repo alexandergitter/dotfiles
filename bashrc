@@ -21,31 +21,10 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-function build_prompt {
-  # set a fancy prompt (non-color, unless we know we "want" color)
-  case "$TERM" in
-    xterm-color|*-256color) local color_prompt=yes;;
-  esac
+source ~/.git-prompt.sh
+GIT_PS1_SHOWCOLORHINTS=true
 
-  if [ "$color_prompt" = yes ]; then
-    PS1='\[\e[1;32m\]\u\[\e[0m\]@\h \[\e[1;34m\]\w\[\e[0m\]'
-  else
-    PS1='\u@\h:\w'
-  fi
-
-  if ( type "git" &> /dev/null ) && ( git branch &> /dev/null ); then
-    local git_branch="$(git branch | sed -n 's/^\*.* \([^)]*\))*/\1/p')"
-    PS1="$PS1 \[\e[0;35m\][\[\e[0;32m\]${git_branch}\[\e[0;35m\]]\[\e[0m\]"
-  fi
-
-  PS1="$PS1 % "
-
-  # If this is an xterm set the title to user@host:dir
-  case "$TERM" in
-    xterm*|rxvt*) PS1="\[\e]0;\u@\h: \w\a\]$PS1";;
-  esac
-}
-PROMPT_COMMAND="build_prompt ; $PROMPT_COMMAND"
+PROMPT_COMMAND='__git_ps1 "\[\e[1;32m\]\u\[\e[0m\]@\h \[\e[1;34m\]\w\[\e[0m\]" " % " " \[\e[0;35m\][\[\e[0m\]%s\[\e[0;35m\]]\[\e[0m\]"'
 
 # enable color support of ls
 if [ -x /usr/bin/dircolors ]; then
