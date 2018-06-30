@@ -56,8 +56,21 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# default editor
+if command -v nvim &> /dev/null; then
+  export EDITOR="$(command -v nvim)"
+  export VISUAL="$(command -v nvim)"
+elif command -v vim &> /dev/null; then
+  export EDITOR="$(command -v vim)"
+  export VISUAL="$(command -v vim)"
+elif command -v nano &> /dev/null; then
+  export EDITOR="$(command -v nano)"
+  export VISUAL="$(command -v nano)"
+fi
+
 # programs
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ~/.asdf/completions/asdf.bash ] && source ~/.asdf/completions/asdf.bash
 
 # tab completion settings
 bind 'TAB:menu-complete'
