@@ -24,11 +24,16 @@
 
 (use-package counsel
   :init
-  (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t)
-  (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-next-line)
-  (define-key ivy-minibuffer-map (kbd "C-k") 'ivy-previous-line))
+  (global-set-key (kbd "C-s") 'swiper)
+  (global-set-key (kbd "M-x") 'counsel-M-x)
+  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+  :config
+  (ivy-mode 1))
+
+(use-package which-key
+  :config (which-key-mode))
 
 ;; Use separate custom-file, so emacs doesn't touch this one
 (setq custom-file "~/.emacs.d/custom.el")
