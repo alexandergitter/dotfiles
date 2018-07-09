@@ -25,5 +25,9 @@
     "files.trimTrailingWhitespace": true,
     "explorer.confirmDelete": false,
     "workbench.colorTheme": "Monokai",
-    "editor.autoIndent": true
+    "editor.autoIndent": true,
+    "vim.handleKeys": {
+        "<C-s>": false,
+        "<C-w>": false
+    }
 }
