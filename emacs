@@ -1,4 +1,7 @@
-;; Initilize packaging and install use-package
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Initilize packaging and install use-package ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
@@ -10,7 +13,10 @@
 (eval-when-compile
   (require 'use-package))
 
-;; Configure packages
+;;;;;;;;;;;;;;;;;;;;;;;;
+;; Configure packages ;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+
 (setq use-package-always-ensure t)
 
 (use-package magit
@@ -42,6 +48,10 @@
 (use-package counsel-projectile
   :config (counsel-projectile-mode))
 
+;;;;;;;;;;;;;;;;;
+;; Misc Config ;;
+;;;;;;;;;;;;;;;;;
+
 ;; Use separate custom-file, so emacs doesn't touch this one
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file :noerror)
@@ -59,3 +69,9 @@
       version-control t)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+(show-paren-mode 1)
+(setq-default indent-tabs-mode nil)
+(setq load-prefer-newer t
+      ediff-window-setup-function 'ediff-setup-windows-plain)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
