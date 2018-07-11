@@ -24,8 +24,9 @@
 
 (use-package counsel
   :init
-  (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t)
+  (setq ivy-use-virtual-buffers t
+        enable-recursive-minibuffers t
+        ivy-re-builders-alist '((t . ivy--regex-ignore-order)))
   (global-set-key (kbd "C-s") 'swiper)
   (global-set-key (kbd "M-x") 'counsel-M-x)
   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
@@ -34,6 +35,12 @@
 
 (use-package which-key
   :config (which-key-mode))
+
+(use-package projectile
+  :config (projectile-mode))
+
+(use-package counsel-projectile
+  :config (counsel-projectile-mode))
 
 ;; Use separate custom-file, so emacs doesn't touch this one
 (setq custom-file "~/.emacs.d/custom.el")
