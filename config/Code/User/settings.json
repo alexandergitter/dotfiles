@@ -29,5 +29,6 @@
     "vim.handleKeys": {
         "<C-s>": false,
         "<C-w>": false
-    }
+    },
+    "vim.useSystemClipboard": true
 }
