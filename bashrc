@@ -72,10 +72,6 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f ~/.asdf/completions/asdf.bash ] && source ~/.asdf/completions/asdf.bash
 
-if command -v fasd &> /dev/null; then
-  eval "$(fasd --init auto)"
-fi
-
 
 # tab completion settings
 bind 'TAB:menu-complete'
@@ -89,3 +85,4 @@ alias ll='ls -alFh'
 alias la='ls -A'
 alias bx='bundle exec'
 alias ..='cd ..'
+function cs() { cd "$@" && ls; }
