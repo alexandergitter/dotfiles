@@ -31,5 +31,6 @@
         "<C-w>": false
     },
     "vim.useSystemClipboard": true,
-    "workbench.editor.tabSizing": "shrink"
+    "workbench.editor.tabSizing": "shrink",
+    "search.collapseResults": "alwaysExpand"
 }
