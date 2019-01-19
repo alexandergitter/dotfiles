@@ -8,3 +8,5 @@
 [alias]
   s = status
   pullff = pull --ff-only
+[core]
+  pager = less -+X

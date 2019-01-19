@@ -4,15 +4,12 @@ case $- in
     *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
+# History settings
 export HISTCONTROL=ignoreboth:erasedups
-
-# append to the history file, don't overwrite it
 shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 export HISTSIZE=1000
 export HISTFILESIZE=2000
+export HISTIGNORE='ls:* --help'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -21,8 +18,9 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-source ~/.git-prompt.sh
+# Prompt
 GIT_PS1_SHOWCOLORHINTS=true
+source ~/.vendor/git-prompt.sh
 
 PROMPT_COMMAND='__git_ps1 "\[\e[1;32m\]\u\[\e[0m\]@\h \[\e[1;34m\]\w\[\e[0m\]" " % " " \[\e[0;35m\][\[\e[0m\]%s\[\e[0;35m\]]\[\e[0m\]"'
 
@@ -69,8 +67,13 @@ elif command -v nano &> /dev/null; then
 fi
 
 # programs
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+if [ -f ~/.fzf.bash ]; then
+  ( command fd &> /dev/null ) && export FZF_ALT_C_COMMAND="fd --type d -I"
+  source ~/.fzf.bash
+fi
+
 [ -f ~/.asdf/completions/asdf.bash ] && source ~/.asdf/completions/asdf.bash
+source ~/.vendor/z.sh
 
 
 # tab completion settings
@@ -81,8 +84,14 @@ bind 'set show-all-if-ambiguous on'
 
 # aliases
 alias sl='ls'
-alias ll='ls -alFh'
-alias la='ls -A'
+alias la='ls -AF'
+alias l='ls -lFGh'
+alias ll='ls -hAlF'
 alias bx='bundle exec'
 alias ..='cd ..'
+alias ...='cd ../..'
 function cs() { cd "$@" && ls; }
+function cheat() { curl cht.sh/$1; }
+
+# local system config
+[ -f ~/.bashrc_local ] && source ~/.bashrc_local
