@@ -75,13 +75,6 @@ fi
 [ -f ~/.asdf/completions/asdf.bash ] && source ~/.asdf/completions/asdf.bash
 source ~/.vendor/z.sh
 
-
-# tab completion settings
-bind 'TAB:menu-complete'
-bind 'set completion-ignore-case on'
-bind 'set menu-complete-display-prefix on'
-bind 'set show-all-if-ambiguous on'
-
 # aliases
 alias sl='ls'
 alias la='ls -AF'
