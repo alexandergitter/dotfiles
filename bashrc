@@ -5,11 +5,11 @@ case $- in
 esac
 
 # History settings
-export HISTCONTROL=ignoreboth:erasedups
+HISTCONTROL=ignoreboth:erasedups
 shopt -s histappend
-export HISTSIZE=1000
-export HISTFILESIZE=2000
-export HISTIGNORE='ls:* --help'
+HISTSIZE=1000
+HISTFILESIZE=2000
+HISTIGNORE='ls:* --help'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -76,14 +76,14 @@ fi
 source ~/.vendor/z.sh
 
 # aliases
-alias sl='ls'
+alias sl='ls -F'
 alias la='ls -AF'
-alias l='ls -lFGh'
+alias l='ls -lFh'
 alias ll='ls -hAlF'
 alias bx='bundle exec'
 alias ..='cd ..'
 alias ...='cd ../..'
-function cs() { cd "$@" && ls; }
+function cs() { cd "$@" && ls -F; }
 function cheat() { curl cht.sh/$1; }
 
 # local system config
