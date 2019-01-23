@@ -15,6 +15,14 @@ HISTIGNORE='ls:* --help'
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# Recursive ** and case-insensitive globbing
+shopt -s globstar
+shopt -s nocaseglob
+
+function try_source() {
+  [[ -f "$1" ]] && source "$1"
+}
+
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
@@ -52,8 +60,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-source ~/.vendor/git-completion.bash
-
 # default editor
 if command -v nvim &> /dev/null; then
   export EDITOR="$(command -v nvim)"
@@ -67,13 +73,15 @@ elif command -v nano &> /dev/null; then
 fi
 
 # programs
-if [ -f ~/.fzf.bash ]; then
-  ( command fd &> /dev/null ) && export FZF_ALT_C_COMMAND="fd --type d -I"
+if [[ -f ~/.fzf.bash ]]; then
+  { command fd &> /dev/null; } && export FZF_ALT_C_COMMAND="fd --type d -I"
   source ~/.fzf.bash
 fi
 
-[ -f ~/.asdf/completions/asdf.bash ] && source ~/.asdf/completions/asdf.bash
+try_source "$HOME/.asdf/completions/asdf.bash"
 source ~/.vendor/z.sh
+
+try_source "$HOME/.vendor/git-completion.bash"
 
 # aliases
 alias sl='ls -F'
@@ -87,4 +95,4 @@ function cs() { cd "$@" && ls -F; }
 function cheat() { curl cht.sh/$1; }
 
 # local system config
-[ -f ~/.bashrc_local ] && source ~/.bashrc_local
+try_source "$HOME/.bashrc_local"

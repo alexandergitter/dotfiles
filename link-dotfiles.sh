@@ -1,17 +1,17 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 dotfile_repo="$(pwd)"
 shopt -s nullglob
 
-if [ ! -f "$dotfile_repo/$(basename $0)" ]; then
+if [[ ! -f "$dotfile_repo/$(basename $0)" ]]; then
   echo "$dotfile_repo does not contain $(basename $0)"
   exit -1
 fi
 
 function link_file {
-  source="$1"
-  target="$2"
-  targetdir="$(dirname $target)"
+  local source="$1"
+  local target="$2"
+  local targetdir="$(dirname $target)"
 
   if [[ ! -d "$targetdir" ]]; then
     echo "$targetdir/ doesn't exist, creating it"
@@ -32,7 +32,7 @@ do
   dirname="$(dirname $relative_file)"
   filename="$(basename $relative_file)"
 
-  if [ $dirname == "." ]; then
+  if [[ $dirname == "." ]]; then
     link_file "$dotfile_repo/$relative_file" "$HOME/.$filename"
   else
     link_file "$dotfile_repo/$relative_file" "$HOME/.$dirname/$filename"
