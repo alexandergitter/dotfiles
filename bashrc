@@ -19,8 +19,13 @@ shopt -s checkwinsize
 shopt -s globstar
 shopt -s nocaseglob
 
+# Helper functions
 function try_source() {
   [[ -f "$1" ]] && source "$1"
+}
+
+function is_command() {
+  command -v "$1" &> /dev/null
 }
 
 # make less more friendly for non-text input files, see lesspipe(1)
@@ -52,29 +57,27 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[01;32m'
 
 # enable programmable completion features
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+  source /usr/share/bash-completion/bash_completion
+elif [ -f /etc/bash_completion ]; then
+  source /etc/bash_completion
 fi
 
 # default editor
-if command -v nvim &> /dev/null; then
+if is_command nvim; then
   export EDITOR="$(command -v nvim)"
   export VISUAL="$(command -v nvim)"
-elif command -v vim &> /dev/null; then
+elif is_command vim; then
   export EDITOR="$(command -v vim)"
   export VISUAL="$(command -v vim)"
-elif command -v nano &> /dev/null; then
+elif is_command nano; then
   export EDITOR="$(command -v nano)"
   export VISUAL="$(command -v nano)"
 fi
 
 # programs
 if [[ -f ~/.fzf.bash ]]; then
-  { command fd &> /dev/null; } && export FZF_ALT_C_COMMAND="fd --type d -I"
+  is_command fd && export FZF_ALT_C_COMMAND="fd --type d -I"
   source ~/.fzf.bash
 fi
 
