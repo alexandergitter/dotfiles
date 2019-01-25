@@ -1,5 +1,4 @@
 {
-    "gitlens.gitExplorer.files.layout": "auto",
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -11,26 +10,16 @@
         "suppressShowKeyBindingsNotice": true
     },
     "git.autofetch": true,
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "client/.tmp": true,
-        "client/dist": true,
-        "client/coverage": true
-    },
     "editor.tabSize": 2,
     "files.trimTrailingWhitespace": true,
     "explorer.confirmDelete": false,
     "workbench.colorTheme": "Monokai",
     "editor.autoIndent": true,
-    "vim.handleKeys": {
-        "<C-s>": false,
-        "<C-w>": false
-    },
-    "vim.useSystemClipboard": true,
     "workbench.editor.tabSizing": "shrink",
-    "search.collapseResults": "alwaysExpand"
+    "search.collapseResults": "alwaysExpand",
+    "diffEditor.renderSideBySide": false,
+    "editor.formatOnPaste": true,
+    "extensions.ignoreRecommendations": true,
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false
 }
