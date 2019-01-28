@@ -96,6 +96,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 function cs() { cd "$@" && ls -F; }
 function cheat() { curl cht.sh/$1; }
+alias magit='emacs -nw -f magit-status'
 
 # local system config
 try_source "$HOME/.bashrc_local"
