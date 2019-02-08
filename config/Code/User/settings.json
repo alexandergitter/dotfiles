@@ -22,5 +22,7 @@
     "extensions.ignoreRecommendations": true,
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
-    "breadcrumbs.enabled": true
+    "breadcrumbs.enabled": true,
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true
 }
