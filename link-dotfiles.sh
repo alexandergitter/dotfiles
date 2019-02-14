@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 dotfile_repo="$(pwd)"
-shopt -s nullglob
 
 if [[ ! -f "$dotfile_repo/$(basename $0)" ]]; then
   echo "$dotfile_repo does not contain $(basename $0)"
