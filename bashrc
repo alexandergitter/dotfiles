@@ -38,7 +38,7 @@ source ~/.vendor/git-prompt.sh
 PROMPT_COMMAND='__git_ps1 "\[\e[1;32m\]\u\[\e[0m\]@\h \[\e[1;34m\]\w\[\e[0m\]" " % " " \[\e[0;35m\][\[\e[0m\]%s\[\e[0;35m\]]\[\e[0m\]"'
 
 # enable color support of ls
-if [ -x /usr/bin/dircolors ]; then
+if is_command dircolors; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
   alias ls='ls --color=auto'
 
