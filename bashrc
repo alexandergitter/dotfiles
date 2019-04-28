@@ -76,6 +76,8 @@ elif is_command nano; then
 fi
 
 # programs
+is_command fdfind && alias fd='fdfind'
+
 if [[ -f ~/.fzf.bash ]]; then
   is_command fd && export FZF_ALT_C_COMMAND="fd --type d -I"
   source ~/.fzf.bash
