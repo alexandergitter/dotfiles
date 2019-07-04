@@ -17,7 +17,7 @@
     "editor.autoIndent": true,
     "workbench.editor.tabSizing": "shrink",
     "search.collapseResults": "alwaysExpand",
-    "diffEditor.renderSideBySide": false,
+    "diffEditor.renderSideBySide": true,
     "editor.formatOnPaste": true,
     "extensions.ignoreRecommendations": true,
     "telemetry.enableTelemetry": false,
