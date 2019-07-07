@@ -29,7 +29,7 @@ function is_command() {
 }
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[[ -x /usr/bin/lesspipe ]] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Prompt
 GIT_PS1_SHOWCOLORHINTS=true
@@ -57,9 +57,9 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[01;32m'
 
 # enable programmable completion features
-if [ -f /usr/share/bash-completion/bash_completion ]; then
+if [[ -f /usr/share/bash-completion/bash_completion ]]; then
   source /usr/share/bash-completion/bash_completion
-elif [ -f /etc/bash_completion ]; then
+elif [[ -f /etc/bash_completion ]]; then
   source /etc/bash_completion
 fi
 
