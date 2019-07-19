@@ -78,9 +78,9 @@ fi
 # programs
 is_command fdfind && alias fd='fdfind'
 
-if [[ -f ~/.fzf.bash ]]; then
+if is_command fzf; then
   is_command fd && export FZF_ALT_C_COMMAND="fd --type d -I"
-  source ~/.fzf.bash
+  source ~/.vendor/fzf-key-bindings.bash
 fi
 
 try_source "$HOME/.asdf/completions/asdf.bash"
