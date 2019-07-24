@@ -12,16 +12,24 @@ function link_file {
   local target="$2"
   local targetdir="$(dirname $target)"
 
-  if [[ ! -d "$targetdir" ]]; then
+  if [[ ! -e "$targetdir" ]]; then
     echo "$targetdir/ doesn't exist, creating it"
     mkdir -p "$(dirname $target)"
+  elif [[ ! -d "$targetdir" ]]; then
+    echo "Warning: $targetdir is not a directory, skipping"
+    return 1
+  elif [[ -L "$targetdir" ]]; then
+    echo "Warning: $targetdir is a symbolic link, skipping"
+    return 1
   fi
 
-  if [[ -f "$target" || -d "$target" ]]; then
-    echo "$target exists, skipping"
-  else
-    echo "linking $target -> $source"
+  if [[ ! -e "$target" ]]; then
+    echo "Linking $target -> $source"
     ln -s "$source" "$target"
+  elif [[ ! -L "$target" || "$(readlink $target)" != "$source" ]]; then
+    echo "Warning: $target is not a link or doesn't link to $source, skipping"
+  else
+    echo "Correct link exists: $target, skipping"
   fi
 }
 
