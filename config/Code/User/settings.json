@@ -25,6 +25,5 @@
     "breadcrumbs.enabled": true,
     "files.trimFinalNewlines": true,
     "files.insertFinalNewline": true,
-    "search.usePCRE2": true,
     "gitlens.codeLens.enabled": false
 }
