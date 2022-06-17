@@ -10,3 +10,4 @@
   pullff = pull --ff-only
 [core]
   pager = less -+X
+  excludesfile = ~/.gitignore_global

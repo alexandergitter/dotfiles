@@ -1,29 +1,16 @@
 {
-    "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true
-    },
     "git.autofetch": true,
     "editor.tabSize": 2,
     "files.trimTrailingWhitespace": true,
     "explorer.confirmDelete": false,
-    "workbench.colorTheme": "Monokai",
-    "editor.autoIndent": true,
+    "editor.autoIndent": "full",
     "workbench.editor.tabSizing": "shrink",
     "search.collapseResults": "alwaysExpand",
     "diffEditor.renderSideBySide": true,
     "editor.formatOnPaste": true,
     "extensions.ignoreRecommendations": true,
-    "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false,
     "breadcrumbs.enabled": true,
     "files.trimFinalNewlines": true,
     "files.insertFinalNewline": true,
-    "gitlens.codeLens.enabled": false
+    "workbench.editor.splitInGroupLayout": "vertical"
 }

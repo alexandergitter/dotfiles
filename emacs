@@ -24,9 +24,9 @@
   (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
   (global-set-key (kbd "C-x g") 'magit-status))
 
-(use-package monokai-theme
-  :ensure monokai-theme
-  :config (load-theme 'monokai t))
+(use-package gruvbox-theme
+  :ensure gruvbox-theme
+  :config (load-theme 'gruvbox t))
 
 (use-package counsel
   :init
@@ -70,6 +70,7 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+(windmove-default-keybindings 'meta)
 (show-paren-mode 1)
 (setq-default indent-tabs-mode nil)
 (setq load-prefer-newer t

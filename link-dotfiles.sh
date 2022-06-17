@@ -3,7 +3,7 @@
 dotfile_repo="$(pwd)"
 
 if [[ ! -f "$dotfile_repo/$(basename $0)" ]]; then
-  echo "$dotfile_repo does not contain $(basename $0)"
+  echo "Make sure to cd into the directory that contains this script. $dotfile_repo does not contain $(basename $0)"
   exit -1
 fi
 

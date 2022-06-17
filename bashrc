@@ -35,7 +35,7 @@ function is_command() {
 GIT_PS1_SHOWCOLORHINTS=true
 source ~/.vendor/git-prompt.sh
 
-PROMPT_COMMAND='__git_ps1 "\[\e[1;32m\]\u\[\e[0m\]@\h \[\e[1;34m\]\w\[\e[0m\]" " % " " \[\e[0;35m\][\[\e[0m\]%s\[\e[0;35m\]]\[\e[0m\]"'
+PROMPT_COMMAND='__git_ps1 "\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]\[\e[1;32m\]\u\[\e[0m\]@\h \[\e[1;34m\]\w\[\e[0m\]" " % " " \[\e[0;35m\][\[\e[0m\]%s\[\e[0;35m\]]\[\e[0m\]"'
 
 # enable color support of ls
 if is_command dircolors; then
@@ -56,11 +56,15 @@ export LESS_TERMCAP_so=$'\e[01;44;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[01;32m'
 
-# enable programmable completion features
-if [[ -f /usr/share/bash-completion/bash_completion ]]; then
-  source /usr/share/bash-completion/bash_completion
-elif [[ -f /etc/bash_completion ]]; then
-  source /etc/bash_completion
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
 fi
 
 # default editor
@@ -84,8 +88,6 @@ if is_command fzf; then
 fi
 
 try_source "$HOME/.asdf/completions/asdf.bash"
-source ~/.vendor/z.sh
-
 try_source "$HOME/.vendor/git-completion.bash"
 
 # aliases
