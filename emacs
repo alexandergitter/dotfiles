@@ -48,6 +48,9 @@
 (use-package counsel-projectile
   :config (counsel-projectile-mode))
 
+(use-package markdown-mode
+  :hook (markdown-mode . display-fill-column-indicator-mode))
+
 ;;;;;;;;;;;;;;;;;
 ;; Misc Config ;;
 ;;;;;;;;;;;;;;;;;
