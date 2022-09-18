@@ -87,6 +87,7 @@ if is_command fzf; then
   source ~/.vendor/fzf-key-bindings.bash
 fi
 
+try_source "$HOME/.opam/opam-init/init.sh"
 try_source "$HOME/.asdf/completions/asdf.bash"
 try_source "$HOME/.vendor/git-completion.bash"
 
