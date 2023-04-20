@@ -9,6 +9,7 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
+; use-package comes included with Emacs 29, so this can probably be removed
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
