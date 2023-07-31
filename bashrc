@@ -96,11 +96,9 @@ alias sl='ls -F'
 alias la='ls -AF'
 alias l='ls -lFh'
 alias ll='ls -hAlF'
-alias bx='bundle exec'
 alias ..='cd ..'
 alias ...='cd ../..'
 function cs() { cd "$@" && ls -F; }
-function cheat() { curl cht.sh/$1; }
 alias magit='emacs -nw -f magit-status'
 
 # local system config
